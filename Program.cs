@@ -88,26 +88,38 @@ Console.WriteLine("Enter an Integer from 0 to 1,000,000 :" );
          Console.WriteLine( $"{Thousands[hundredIndex]} and {Hundreds[positiontens]} {Tens[positionUnit-1]}");
         } 
       } 
-      else if (num < 10000) { // 6510
-      int ThousandPosition = num/1000 -1 ;//6510/1000 -1 =5
-      int ThousandRemainder = num% 1000 ;//6510% 1000 = 510
-      int HundredPosition = ThousandRemainder/100 -1 ; //510/100 =5-1 =4
-      int HundredRemainder = ThousandRemainder % 100 ;// 510% 100 = 10
-      int TensPosition = HundredRemainder /10 -2; ///10 -2 =6
-      int TensRemainder =HundredRemainder % 10  ;//10% 10 =1
+      else if (num < 10000) { // 6590
+      int ThousandPosition = num/1000 -1 ;//6590/1000 -1 =5 tenthousand[5]
+      int ThousandRemainder = num% 1000 ;//6590% 1000 = 590
+      int HundredPosition = ThousandRemainder/100 -1 ; //590/100 =5-1 =4  thousand[4]
+      int HundredRemainder = ThousandRemainder % 100 ;// 590% 100 = 90 
+      int TensPosition = HundredRemainder /10 -2; ///9 -2 =7
+      int TensRemainder =HundredRemainder % 10  ;//10% 10 =0
 
       if (ThousandRemainder ==0 ){
         Console.WriteLine($"{TensOfThousands[ThousandPosition]}");
-      } else if (HundredRemainder ==0 ){
-         Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]}");}
-         else if (TensRemainder ==0) {
-         Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]} and {Hundreds[TensPosition]}");}
-         else 
-        { Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]} and {Hundreds[TensPosition]} {Tens[HundredRemainder]}");
+      } else if (HundredRemainder ==0 )
+      {
+         Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]}");
+      }
+        else if (HundredRemainder <20) 
+      {
+         Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]} and {Tens[HundredRemainder -1]}");
+      }
+        else if (TensRemainder ==0)
+      {
+         Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]} and {Hundreds[TensPosition]}");
+      } else 
+      {
+       // else if (TensRemainder < 20) {
+         Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]} and {Hundreds[TensPosition]} {Tens[TensRemainder -1]}");
+       }
+        //else 
+       // { Console.WriteLine($"{TensOfThousands[ThousandPosition]} {Thousands[HundredPosition]} and {Hundreds[TensPosition]} {Tens[HundredRemainder]}" );
       }
     }
   }
-}
+
     
 
 
